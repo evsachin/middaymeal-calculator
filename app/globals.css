@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #fff;
+  --foreground: #000;
 }
 
 @theme inline {
