@@ -30,7 +30,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563eb" />
 
         {/* iOS Support */}
-        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       </head>
