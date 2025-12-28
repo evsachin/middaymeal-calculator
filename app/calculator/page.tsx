@@ -18,7 +18,7 @@ export default function Page() {
   }));
 
   return (
-    <div className="md:p-2 bg-linear-to-br from-blue-50 via-white to-blue-100 rounded-2xl">
+    <div className="md:p-2 rounded-2xl">
 
       <h2 className="text-2xl font-extrabold text-blue-700 mb-2">
         विद्यार्थ्यांप्रमाणे मालाचा हिशोब
