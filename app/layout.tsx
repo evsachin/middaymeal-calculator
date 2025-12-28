@@ -36,17 +36,16 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-blue-50 via-white to-blue-100 min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-linear-to-br from-blue-50 via-white to-blue-100 min-h-screen`}
       >
         {/* Header */}
         <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b shadow-sm">
-         
-          <Header/>
+          <Header />
         </header>
 
         {/* Main App Container */}
         <main className="max-w-4xl mx-auto px-4 py-6">
-          <div className="bg-white rounded-xl shadow-lg border p-4 md:p-6">
+          <div className="bg-white rounded-xl shadow-lg border p-3 md:p-6">
             {children}
           </div>
         </main>

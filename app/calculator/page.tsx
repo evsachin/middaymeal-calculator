@@ -13,9 +13,9 @@ export default function Page() {
 
   const rows = ITEMS.map((i) => ({
     ...i,
-    primary: +(i.p1 * safeP1).toFixed(3),
-    secondary: +(i.p2 * safeP2).toFixed(3),
-    total: +(i.p1 * safeP1 + i.p2 * safeP2).toFixed(3),
+    primary: (i.p1 * safeP1).toFixed(3),
+    secondary: (i.p2 * safeP2).toFixed(3),
+    total: (i.p1 * safeP1 + i.p2 * safeP2).toFixed(3),
   }));
 
   return (
@@ -72,34 +72,36 @@ export default function Page() {
           गणना केलेला मालाचा तपशील
         </h3>
 
-        <table className="w-full border">
-          <thead className="bg-gray-200 text-center">
-            <tr>
-              <th className="border p-2">अन्न सामग्री</th>
-              <th className="border p-2">1–5 वी (एकूण)</th>
-              <th className="border p-2">6–8 वी (एकूण)</th>
-              <th className="border p-2">एकूण प्रमाण</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {rows.map((r) => (
-              <tr className="border text-center" key={r.name}>
-                <td className="border p-2">{r.name}</td>
-                <td className="border p-2">{r.primary} kg</td>
-                <td className="border p-2">{r.secondary} kg</td>
-                <td className="border p-2 font-semibold text-blue-700">
-                  {r.total} kg
-                </td>
+        <div className="overflow-hidden rounded-xl border">
+          <table className="w-full border">
+            <thead className="bg-gray-200 text-center">
+              <tr className="">
+                <th className="border p-2">अन्न सामग्री</th>
+                <th className="border p-2">1–5 वी (एकूण)</th>
+                <th className="border p-2">6–8 वी (एकूण)</th>
+                <th className="border p-2">एकूण प्रमाण</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {rows.map((r) => (
+                <tr className="border text-center" key={r.name}>
+                  <td className="border p-2">{r.name}</td>
+                  <td className="border p-2">{r.primary} kg</td>
+                  <td className="border p-2">{r.secondary} kg</td>
+                  <td className="border p-2 font-semibold text-blue-700">
+                    {r.total} kg
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* PDF Button */}
 
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-6 mb-6">
         <button
           onClick={() => generateMealPDF(rows, safeP1, safeP2)}
           disabled={safeP1 === 0 && safeP2 === 0}
