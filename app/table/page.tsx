@@ -1,33 +1,54 @@
+"use client"
 import { ITEMS } from "@/data/items";
 
-export default function Page(){
+export default function Page() {
   return (
-    <div className="pt-5">
-      <h2 className="text-xl font-bold mb-4 text-blue-700">अ.नं. मालाचा तपशील</h2>
+    <div className="pt-3 lg:pt-5">
+      <h2 className="text-2xl font-bold mb-2 text-blue-700">
+        अ.नं. मालाचा तपशील
+      </h2>
 
-      <div className="overflow-hidden border-2 rounded-xl">
+      <p className="text-gray-600 mb-4">
+        विद्यार्थ्यांच्या इयत्तेनुसार देण्यात येणाऱ्या अन्नसामग्रीचे प्रमाण.
+      </p>
 
-     
-      <table className="w-full border">
-        <thead className="bg-gray-200">
-          <tr>
-            <th className="border p-2">सामग्री</th>
-            <th className="border p-2">1ली–5वी साठी प्रमाण कि.ग्रॅ.</th>
-            <th className="border p-2">6वी–8वी साठी प्रमाण कि.ग्रॅ.</th>
-          </tr>
-        </thead>
+      <div className="overflow-hidden rounded-2xl border border-blue-200 shadow-xl">
 
-        <tbody>
-          {ITEMS.map(i => (
-            <tr key={i.name} className="border text-center" >
-              <td className="border p-2">{i.name}</td>
-              <td className="border p-2">{i.p1}</td>
-              <td className="border p-2">{i.p2}</td>
+        <table className="w-full">
+          <thead className="bg-linear-to-r from-blue-600 via-blue-500 to-sky-400 text-white text-center">
+            <tr>
+              <th className="border border-blue-300 p-3">अन्न सामग्री</th>
+              <th className="border border-blue-300 p-3">
+                1ली – 5वी साठी (कि.ग्रॅ.)
+              </th>
+              <th className="border border-blue-300 p-3">
+                6वी – 8वी साठी (कि.ग्रॅ.)
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-       </div>
+          </thead>
+
+          <tbody>
+            {ITEMS.map((i, index) => (
+              <tr
+                key={i.name}
+                className={`text-center transition ${
+                  index % 2 === 0
+                    ? "bg-blue-50"
+                    : "bg-white"
+                } hover:bg-blue-100`}
+              >
+                <td className="border p-3 font-medium">{i.name}</td>
+                <td className="border p-3">{i.p1}</td>
+                <td className="border p-3">{i.p2}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="text-gray-500 text-sm mt-3">
+        वरील प्रमाण शासन नियमानुसार आहे.
+      </p>
     </div>
   );
 }
