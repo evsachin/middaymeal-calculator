@@ -65,7 +65,7 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="text-center text-gray-600 py-4 text-sm">
-          © {new Date().getFullYear()} Evisio-Tech. All Rights Reserved. |
+          © {new Date().getFullYear()} EvisionTech. All Rights Reserved. |
           <span className="font-semibold text-blue-700">
             {" "}
             Midday Meal Calculator

@@ -10,11 +10,27 @@ export default function Page() {
   const safeP1 = Number(p1) || 0;
   const safeP2 = Number(p2) || 0;
 
+  // const rows = ITEMS.map((i) => ({
+  //   ...i,
+  //   primary: (i.p1 * safeP1).toFixed(5),
+  //   secondary: (i.p2 * safeP2).toFixed(5),
+  //   total: (i.p1 * safeP1 + i.p2 * safeP2).toFixed(5),
+  // }));
+
+  const FIVE_PRECISION_ITEMS = new Set(["जिरे"]);
+
+  const FOUR_PRECISION_ITEMS = new Set(["मोहरी", "हळद", "मसाला", "मीठ"]);
+
+  const formatValue = (itemName: string, value: number) => {
+    if (FIVE_PRECISION_ITEMS.has(itemName)) return value.toFixed(5);
+    if (FOUR_PRECISION_ITEMS.has(itemName)) return value.toFixed(4);
+    return value.toFixed(3);
+  };
   const rows = ITEMS.map((i) => ({
     ...i,
-    primary: (i.p1 * safeP1).toFixed(3),
-    secondary: (i.p2 * safeP2).toFixed(3),
-    total: (i.p1 * safeP1 + i.p2 * safeP2).toFixed(3),
+    primary: formatValue(i.name, i.p1 * safeP1),
+    secondary: formatValue(i.name, i.p2 * safeP2),
+    total: formatValue(i.name, i.p1 * safeP1 + i.p2 * safeP2),
   }));
 
   const COST_P1 = 2.59;
@@ -156,7 +172,16 @@ export default function Page() {
       {/* PDF Button */}
       <div className="flex justify-center mt-6 mb-6">
         <button
-          onClick={() => generateMealPDF(rows, safeP1, safeP2,kharcha15, kharcha68, totalKharcha)}
+          onClick={() =>
+            generateMealPDF(
+              rows,
+              safeP1,
+              safeP2,
+              kharcha15,
+              kharcha68,
+              totalKharcha
+            )
+          }
           disabled={safeP1 === 0 && safeP2 === 0}
           className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 
                      disabled:cursor-not-allowed text-white px-7 py-3 
