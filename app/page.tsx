@@ -15,7 +15,7 @@ export default function Home() {
       {/* Subtitle */}
       <p className="text-gray-600 max-w-lg leading-relaxed">
         विद्यार्थ्यांनुसार आवश्यक धान्य, तेल, मसाले व इतर साहित्याचे 
-        अचूक प्रमाण मोजण्यासाठी हे अॅप उपयोगी ठरते.
+        अचूक प्रमाण मोजण्यासाठी हे ॲप उपयोगी ठरते.
       </p>
 
       {/* Actions */}

@@ -61,12 +61,15 @@ export default function Page() {
           <input
             type="number"
             min={0}
-            value={safeP1}
-            onChange={(e) => setP1(Math.max(0, +e.target.value))}
-            placeholder="उदा. 120"
+            value={p1 || ""}
+            onChange={(e) => {
+              const val = e.target.value;
+              setP1(val === "" ? "" : Math.max(0, +val));
+            }}
+            placeholder="एकूण विद्यार्थ्यांची संख्या भरा ...(उदा. 21)"
             className="border border-blue-300 focus:border-blue-600 focus:ring-2
                        focus:ring-blue-200 outline-none p-2 rounded-xl w-full
-                       transition shadow-sm bg-white"
+                       transition shadow-sm bg-white placeholder:opacity-60 placeholder:text-sm"
           />
 
           <small className="text-gray-500">
@@ -82,12 +85,15 @@ export default function Page() {
           <input
             type="number"
             min={0}
-            value={safeP2}
-            onChange={(e) => setP2(Math.max(0, +e.target.value))}
-            placeholder="उदा. 85"
+            value={p2 || ""}
+            onChange={(e) => {
+              const val = e.target.value;
+              setP2(val === "" ? "" : Math.max(0, +val));
+            }}
+            placeholder="एकूण विद्यार्थ्यांची संख्या भरा ...(उदा. 12)"
             className="border border-blue-300 focus:border-blue-600 focus:ring-2
                        focus:ring-blue-200 outline-none p-2 rounded-xl w-full
-                       transition shadow-sm bg-white"
+                       transition shadow-sm bg-white placeholder:opacity-60 placeholder:text-sm"
           />
 
           <small className="text-gray-500">
